@@ -80,14 +80,14 @@ if [ "${run_additional_instance}" = true ]; then
         -it \
         --user yocto \
         -w /opt/yocto/workspace \
-        hubshuffle-yocto \
+        etcdev-yocto \
         /bin/bash
 else
     docker container run \
         -it \
         --rm \
         -v "${PWD}":/opt/yocto \
-        --name hubshuffle-yocto \
+        --name etcdev-yocto \
         ${arg_net_forward} \
         ${arg_x11_forward} \
         ${arg_privileged} \
