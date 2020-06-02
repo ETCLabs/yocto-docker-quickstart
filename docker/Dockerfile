@@ -16,6 +16,9 @@ RUN apt-get -y install python-virtualenv daemon
 # for package feeds
 RUN apt-get -y install lighttpd
 
+# for menuconfig tui
+RUN apt-get -y install libncurses-dev
+
 # for bitbake -g
 RUN apt-get -y install python3-gi python-pip python3-aptdaemon.gtk3widgets
 
