@@ -144,3 +144,6 @@ export PS1='\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$ '
 export EDITOR=vim
 
 export XENVIRONMENT="${HOME}/.Xresources"
+
+cd /opt/yocto/workspace
+. ./sources/poky/oe-init-build-env build
