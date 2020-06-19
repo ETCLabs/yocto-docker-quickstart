@@ -37,3 +37,20 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install repo
 RUN curl -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo && chmod a+x /usr/local/bin/repo
+
+# Add yocto base directory
+RUN mkdir -p /opt/yocto && chmod 777 /opt/yocto
+
+# Add "yocto" user
+RUN groupadd -g 7777 yocto && useradd --password U6aMy0wojraho --shell /bin/bash -u 8888 -g 7777 yocto && usermod -aG sudo yocto && usermod -aG users yocto
+USER yocto
+
+# Install Yocto sources
+WORKDIR /opt/yocto
+ADD --chown=yocto clone-yocto.sh ./
+RUN chmod +x clone-yocto.sh && ./clone-yocto.sh workspace && rm -f clone-yocto.sh
+
+# Setup yocto environment
+WORKDIR /opt/yocto/workspace
+RUN . ./sources/poky/oe-init-build-env build
+COPY --chown=yocto container-files/ /opt/yocto/workspace/build/
