@@ -92,5 +92,5 @@ else
         ${arg_x11_forward} \
         ${arg_privileged} \
         --volume "${PWD}/home":/home/yocto \
-        cccp/yocto:1.1
+        cccp/yocto:1.2
 fi
