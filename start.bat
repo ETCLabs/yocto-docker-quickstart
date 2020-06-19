@@ -13,4 +13,4 @@ docker container run ^
   -v "%CD%\workspace\sources":/opt/yocto/workspace/sources ^
   -v "%CD%\cache":/opt/yocto/cache ^
   -v "%CD%\home":/home/yocto ^
-  cccp/yocto:1.1
+  cccp/yocto:1.2
